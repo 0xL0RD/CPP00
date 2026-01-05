@@ -13,7 +13,7 @@ $(NAME): $(OBJS)
 	$(GCC) $(CFLAGS) -o $@ -c $^
 
 clean:
-	rm -f $(OBJS)
+	rm -f *.o
 
 fclean: clean
 	rm -f $(NAME)
