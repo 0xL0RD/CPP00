@@ -5,60 +5,76 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rubsanch <rubsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/05 09:22:06 by rubsanch          #+#    #+#             */
-/*   Updated: 2026/01/05 10:57:49 by rubsanch         ###   ########.fr       */
+/*   Created: 2026/01/08 15:02:41 by rubsanch          #+#    #+#             */
+/*   Updated: 2026/01/08 16:57:03 by rubsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
+#include "Contact.class.hpp"
 
 int	getinput(std::string prompt, std::string *result)
 {
 	std::cout << prompt;
 	std::cin >> *result;		//TODO: fix crl+D infinite loop
-	//std::cout << resultI/;
 	return (1);
 }
 
-int	isPhoneNumber(std::string str)
+int	cmd_add_core(
+		std::string prompt,
+		Contact& c,
+		int (Contact::*f)(std::string *v))
 {
-	if (str.find_first_not_of("0123456789") != std::string::npos)
-		return (0);
+	std::string	str;
+	int		r;
+
+	while (1)
+	{
+		getinput(prompt, &str);
+		r = (c.*f)(&str);
+		if (r > 0)
+			break ;
+	}
 	return (1);
 }
 
 int	cmd_add(void)
 {
-	const std::string	prompt[] = {
-	 "First name",
-	 "Last name",
-	 "Nickname",
-	 "Phone number",
-	 "Darkest secret"
+	Contact		contact;
+	std::string	str[] = {
+	"First name: ",
+	"Last name: ",
+	"Nickname: ",
+	"Phonenumber: ",
+	"Darkest secret: "
 	};
-	std::string		value[5];
-	int			r;
-	long unsigned int	i;
-
+	int		r;
+	int		(Contact::*methods[])(std::string *v) = {
+				&Contact::first_name_set,
+				&Contact::last_name_set,
+				&Contact::nickname_name_set,
+				&Contact::phonenumber_set,
+				&Contact::darkest_secret_set
+	};
+	size_t		i;
+	
 	i = 0;
-	//for (long unsigned int i = 0; i < sizeof(prompt) / sizeof(prompt[0]); i++)
-	while (i < sizeof(prompt) / sizeof(prompt[0]))
+	while (i < sizeof(methods) / sizeof(methods[0]))
 	{
-	 	r = getinput(prompt[i] + ": ", &value[i]);
+		//r = cmd_add_core("First name: ", contact, methods[i]);
+		r = cmd_add_core(str[i], contact, methods[i]);
 		if (r < 0)
-			return (-1);
-		if (prompt[i] == "Phone number")
-		{
-			if (isPhoneNumber(value[i]) == 0)
-			{
-				std::cout << "Wrong phone number." << std::endl;
-				continue ;
-			}
-		}
-		std::cout << value[i] << std::endl;
+			return (r);
 		i++;
 	}
+	/*
+	r = cmd_add_core("First name: ", contact, &Contact::first_name_set);
+	if (r < 0)
+		return (r);
+		*/
+	std::cout << contact.first_name_get() << std::endl;
+	std::cout << contact.last_name_get() << std::endl;
 	return (1);
 }
 
@@ -88,7 +104,7 @@ int	main(int argc, char *argv[])
 			if (r < 0)
 				break ;
 		}
-		std::cout << cmd;
+		//std::cout << cmd;
 		std::cout << std::endl;
 	}
 	return (0);
