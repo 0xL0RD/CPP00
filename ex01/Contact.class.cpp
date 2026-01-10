@@ -6,7 +6,7 @@
 /*   By: rubsanch <rubsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 14:31:52 by rubsanch          #+#    #+#             */
-/*   Updated: 2026/01/08 17:02:14 by rubsanch         ###   ########.fr       */
+/*   Updated: 2026/01/08 18:29:41 by rubsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,18 @@
 int	Contact::isPhoneNumber(std::string str)
 {
 	if (str.find_first_not_of("0123456789") != std::string::npos)
+		return (0);
+	return (1);
+}
+
+int	Contact::isValid(void)
+{
+	if (this->_first_name.empty() == 1
+		|| this->_last_name.empty() == 1
+		|| this->_nickname.empty() == 1
+		|| this->_phonenumber.empty() == 1
+		|| this->_darkest_secret.empty() == 1
+	   )
 		return (0);
 	return (1);
 }

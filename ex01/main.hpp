@@ -1,32 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.class.hpp                                :+:      :+:    :+:   */
+/*   main.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rubsanch <rubsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/05 13:13:11 by rubsanch          #+#    #+#             */
-/*   Updated: 2026/01/10 08:02:50 by rubsanch         ###   ########.fr       */
+/*   Created: 2026/01/10 08:41:51 by rubsanch          #+#    #+#             */
+/*   Updated: 2026/01/10 08:51:21 by rubsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_CLASS_HPP
-# define PHONEBOOK_CLASS_HPP
+#ifndef MAIN_HPP
+# define MAIN_HPP
 
-# define PHONE_BOOK_LEN 8
-
-#include "Contact.class.hpp"
-
-class PhoneBook {
-	private:
-		Contact	_contact[PHONE_BOOK_LEN];
-		int	_last_inserted;
-		int	_count;
-	public:
-		int	add(Contact *contact);
-		Contact *get(int index);
-		int	count_get(void);
-		PhoneBook(void);
-};
+# define TRUNCATE_LEN 10
+# define TRUNCATE_CHAR '.'
 
 #endif
