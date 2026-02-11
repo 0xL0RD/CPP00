@@ -6,7 +6,7 @@
 /*   By: rubsanch <rubsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 17:31:22 by rubsanch          #+#    #+#             */
-/*   Updated: 2026/01/10 10:43:35 by rubsanch         ###   ########.fr       */
+/*   Updated: 2026/02/11 11:36:27 by rubsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 
 PhoneBook::PhoneBook(void) : _last_inserted(-1), _count(0)
 {
-	//this->_last_inserted = -1;
-	//this->_count = 0;
+	return ;
 }
 
 int	PhoneBook::add(Contact *contact)
@@ -24,7 +23,6 @@ int	PhoneBook::add(Contact *contact)
 	int	i;
 
 	i = this->_last_inserted;
-	std::cout << "last inserted: " << i << std::endl;
 	if (i == -1)
 		i = 0;
 	else
@@ -32,7 +30,6 @@ int	PhoneBook::add(Contact *contact)
 	i = i % PHONE_BOOK_LEN;
 	if (contact->isValid() == 0)
 		return (-1);
-	std::cout << "adding to i: " << i << std::endl;
 	this->_contact[i] = *contact;
 	this->_count++;
 	if (this->_count > PHONE_BOOK_LEN)

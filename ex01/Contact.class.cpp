@@ -6,15 +6,24 @@
 /*   By: rubsanch <rubsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 14:31:52 by rubsanch          #+#    #+#             */
-/*   Updated: 2026/01/08 18:29:41 by rubsanch         ###   ########.fr       */
+/*   Updated: 2026/02/11 12:38:00 by rubsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.class.hpp"
 
-int	Contact::isPhoneNumber(std::string str)
+int	Contact::isEmpty(const std::string *str)
 {
-	if (str.find_first_not_of("0123456789") != std::string::npos)
+	if (str->empty() == 1)
+		return (1);
+	if (str->find_first_not_of(" \f\n\r\t\v") == std::string::npos)
+		return (1);
+	return (0);
+}
+
+int	Contact::isPhoneNumber(const std::string *str)
+{
+	if (str->find_first_not_of("0123456789") != std::string::npos)
 		return (0);
 	return (1);
 }
@@ -33,7 +42,9 @@ int	Contact::isValid(void)
 
 int	Contact::first_name_set(std::string *v)
 {
-	if ((*v).empty() == 1)
+	//TODO: if only spaces --> invalid
+	//if ((*v).empty() == 1)
+	if (isEmpty(v) == 1)
 		return (-1);
 	this->_first_name = *v;
 	return (1);
@@ -41,7 +52,8 @@ int	Contact::first_name_set(std::string *v)
 
 int	Contact::last_name_set(std::string *v)
 {
-	if ((*v).empty() == 1)
+	//if ((*v).empty() == 1)
+	if (isEmpty(v) == 1)
 		return (-1);
 	this->_last_name = *v;
 	return (1);
@@ -49,7 +61,8 @@ int	Contact::last_name_set(std::string *v)
 
 int	Contact::nickname_name_set(std::string *v)
 {
-	if ((*v).empty() == 1)
+	//if ((*v).empty() == 1)
+	if (isEmpty(v) == 1)
 		return (-1);
 	this->_nickname = *v;
 	return (1);
@@ -57,9 +70,10 @@ int	Contact::nickname_name_set(std::string *v)
 
 int	Contact::phonenumber_set(std::string *v)
 {
-	if ((*v).empty() == 1)
+	//if ((*v).empty() == 1)
+	if (isEmpty(v) == 1)
 		return (-1);
-	if (this->isPhoneNumber(*v) == 0)
+	if (this->isPhoneNumber(v) == 0)
 		return (-1);
 	this->_phonenumber = *v;
 	return (1);
