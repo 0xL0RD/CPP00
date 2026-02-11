@@ -6,7 +6,7 @@
 /*   By: rubsanch <rubsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 17:50:22 by rubsanch          #+#    #+#             */
-/*   Updated: 2026/01/05 09:13:53 by rubsanch         ###   ########.fr       */
+/*   Updated: 2026/02/11 17:56:02 by rubsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	main(int argc, char *argv[])
 	}
 	if (replace_space(params) == 0)
 	{
-		default_msg();	
+		default_msg();
 	}
 	return (0);
 }
