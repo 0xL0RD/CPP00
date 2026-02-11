@@ -6,15 +6,10 @@
 /*   By: rubsanch <rubsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 15:02:41 by rubsanch          #+#    #+#             */
-/*   Updated: 2026/02/11 12:58:37 by rubsanch         ###   ########.fr       */
+/*   Updated: 2026/02/11 14:23:44 by rubsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
-#include "Contact.class.hpp"
-#include "PhoneBook.class.hpp"
-#include <iomanip>
 #include "main.hpp"
 
 int	getinput(std::string prompt, std::string *result)
@@ -94,15 +89,11 @@ int	cmd_add(PhoneBook *phonebook)
 		r = cmd_add_core(str[i], &contact, methods[i]);
 		if (r < 0)
 			return (r);
-		if (r == 0)
-			return (0);
 		i++;
 	}
 	r = phonebook->add(&contact);
 	if (r < 0)
 		return (r);
-	std::cout << contact.first_name_get() << std::endl;
-	std::cout << contact.last_name_get() << std::endl;
 	return (1);
 }
 
@@ -215,6 +206,7 @@ int	main(int argc, char *argv[])
 			r = cmd_add(&phonebook); 
 			if (r < 0)
 				break ;
+			std::cout << "Contact added" << std::endl;
 		}
 		if (cmd == "SEARCH")
 		{

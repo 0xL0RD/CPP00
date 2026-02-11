@@ -6,7 +6,7 @@
 /*   By: rubsanch <rubsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 13:13:11 by rubsanch          #+#    #+#             */
-/*   Updated: 2026/01/10 08:02:50 by rubsanch         ###   ########.fr       */
+/*   Updated: 2026/02/11 14:29:44 by rubsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # define PHONE_BOOK_LEN 8
 
-#include "Contact.class.hpp"
+# include "Contact.class.hpp"
 
 class PhoneBook {
 	private:
