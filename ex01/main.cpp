@@ -6,7 +6,7 @@
 /*   By: rubsanch <rubsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 15:02:41 by rubsanch          #+#    #+#             */
-/*   Updated: 2026/02/11 14:23:44 by rubsanch         ###   ########.fr       */
+/*   Updated: 2026/02/11 17:53:33 by rubsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,11 +126,16 @@ void	print_table_row(const std::string (&field)[4])
 
 int	print_contact(Contact *contact)
 {
-	std::cout << FIRST_NAME_LBL ": " << contact->first_name_get() << std::endl;
-	std::cout << LAST_NAME_LBL ": " << contact->last_name_get() << std::endl;
-	std::cout << NICKNAME_LBL ": " << contact->nickname_name_get() << std::endl;
-	std::cout << PHONENUMBER_LBL ": " << contact->phonenumber_get() << std::endl;
-	std::cout << DARKEST_SECRET_LBL ": " << contact->darkest_secret_get() << std::endl;
+	std::cout << FIRST_NAME_LBL ": "
+		<< contact->first_name_get() << std::endl;
+	std::cout << LAST_NAME_LBL ": "
+		<< contact->last_name_get() << std::endl;
+	std::cout << NICKNAME_LBL ": "
+		<< contact->nickname_name_get() << std::endl;
+	std::cout << PHONENUMBER_LBL ": "
+		<< contact->phonenumber_get() << std::endl;
+	std::cout << DARKEST_SECRET_LBL ": "
+		<< contact->darkest_secret_get() << std::endl;
 	return (1);
 }
 
